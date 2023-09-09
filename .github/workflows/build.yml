@@ -33,4 +33,4 @@ jobs:
         with:
           args: build/libs/*.jar
         env:
-          GITHUB_TOKEN: ${{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}}
+          GITHUB_TOKEN: ${{secrets.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}}
