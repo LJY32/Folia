@@ -28,3 +28,9 @@ jobs:
         run: ./gradlew applyPatches
       - name: Build
         run: ./gradlew createReobfBundlerJar
+      - name: 上传至release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: build/libs/*.jar
+        env:
+          GITHUB_TOKEN: ${{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}}
