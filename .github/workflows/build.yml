@@ -70,10 +70,10 @@ jobs:
       - name: Build
         run: ./gradlew createReobfBundlerJar
       - name: checkout
-              uses: actions/checkout@v2
-            # 上传仓库里的文件到artifact
-            - name: compile
-              uses: actions/upload-artifact@v2
-              with: 
-                name: Folia.jar
-                path: README.md
+        uses: actions/checkout@v2
+        # 上传仓库里的文件到artifact
+      - name: compile
+        uses: actions/upload-artifact@v2
+        with: 
+          name: Folia.jar
+          path: README.md
