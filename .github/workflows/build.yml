@@ -28,20 +28,9 @@ jobs:
         run: ./gradlew applyPatches
       - name: Build
         run: ./gradlew createReobfBundlerJar
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
         with:
-          tag_name: ${{ github.run_number }}
-          release_name: ${{ github.event.repository.name }}  ${{ steps.branch-name.outputs.current_branch }} v${{ github.run_number }}.${{ github.run_attempt }}
-      - name: Upload Release JAR
-        id: upload_release_asset
-        uses: actions/upload-release-asset@v1.0.1
+          args: build/libs/folia-bundler-1.20.1-R0.1-SNAPSHOT-reobf.jar
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/libs/folia-bundler-1.20.1-R0.1-SNAPSHOT-reobf.jar
-          asset_name: ${{ github.event.repository.name }}  ${{ steps.branch-name.outputs.current_branch }} v${{ github.run_number }}.${{ github.run_attempt }}.jar
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
