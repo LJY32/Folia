@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
           name: Folia
-          path: build/libs
+          path: build/libs/folia-bundler-1.20.1-R0.1-SNAPSHOT-reobf.jar
