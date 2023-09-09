@@ -31,6 +31,6 @@ jobs:
       - name: 上传至release
         uses: JasonEtco/upload-to-release@master
         with:
-          args: build/libs/folia-bundler-1.20.1-R0.1-SNAPSHOT-reobf.jar
+          args: build/libs/*.jar
         env:
-          GITHUB_TOKEN: ${{secrets.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}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
